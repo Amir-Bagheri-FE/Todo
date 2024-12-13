@@ -2,7 +2,7 @@ let userPlan = document.querySelector(".planText");
 let AddButton = document.querySelector(".addBtn");
 const Holder = document.querySelector(".added");
 
-AddButton.addEventListener("click",  AddTask())
+AddButton.addEventListener("click",  AddTask)
  function AddTask(){
   if (userPlan.value === "") {
     alert("please add a task");
@@ -23,6 +23,7 @@ AddButton.addEventListener("click",  AddTask())
     Delete.classList.add("fas", "fa-trash-alt");
     done.classList.add("fas", "fa-check");
     sec2.classList.add("buttons");
+    
     Delete.addEventListener('click',(e)=>{
     let target=e.target
     target.parentElement.parentElement.remove()
