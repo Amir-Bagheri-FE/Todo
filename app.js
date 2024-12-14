@@ -23,6 +23,7 @@ AddButton.addEventListener("click",  AddTask)
     Delete.classList.add("fas", "fa-trash-alt");
     done.classList.add("fas", "fa-check");
     sec2.classList.add("buttons");
+    userPlan.value=''
     
     Delete.addEventListener('click',(e)=>{
     let target=e.target
