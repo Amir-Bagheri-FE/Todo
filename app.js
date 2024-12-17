@@ -1,10 +1,13 @@
 let userPlan = document.querySelector(".planText");
 let AddButton = document.querySelector(".addBtn");
 const Holder = document.querySelector(".added");
+let desc = document.querySelector(".description");
+AddButton.addEventListener("click", () => {
+  AddTask(userPlan.value);
+});
 
-AddButton.addEventListener("click",  AddTask)
- function AddTask(){
-  if (userPlan.value === "") {
+function AddTask(M) {
+  if (M === "") {
     alert("please add a task");
   } else {
     let container = document.createElement("div");
@@ -13,31 +16,58 @@ AddButton.addEventListener("click",  AddTask)
     let Task = document.createElement("p");
     let Delete = document.createElement("li");
     let done = document.createElement("li");
+    let Edit = document.createElement("li");
+    let editor = document.createElement("input");
+    const submit = document.createElement("button");
+    submit.textContent = "✅";
     container.append(sec1, sec2);
-    sec1.append(Task);
+    sec1.append(Task, editor, submit);
     sec1.classList.add("addedTask");
-    sec2.append(Delete, done);
+    editor.setAttribute("type", "text");
+    editor.style.display = "none";
+    //sec 2
+    sec2.append(Delete, done, Edit);
     Holder.append(container);
     container.classList.add("mainTask");
-    Task.textContent =userPlan.value ;
+    Task.textContent = M;
     Delete.classList.add("fas", "fa-trash-alt");
     done.classList.add("fas", "fa-check");
+    Edit.classList.add("fas", "fa-edit");
     sec2.classList.add("buttons");
-    userPlan.value=''
-    
-    Delete.addEventListener('click',(e)=>{
-    let target=e.target
-    target.parentElement.parentElement.remove()
-    })
-    done.addEventListener('click', ()=>{
-   Task.classList.add('removed')
-    })
+    submit.classList.add("subButton");
+    //events
+    userPlan.value = "";
+    Delete.addEventListener("click", (e) => {
+      let target = e.target;
+      target.parentElement.parentElement.remove();
+    });
+    done.addEventListener("click", () => {
+      Task.classList.add("removed");
+    });
+    Edit.addEventListener("click", function () {
+      editor.style.display = "block";
+      editor.classList.add("editor");
+      editor.value = Task.textContent;
+      editor.focus();
+    });
+    editor.addEventListener("focus", () => {
+      Task.style.display = "none";
+      submit.style.display = "block";
+    });
+    submit.addEventListener("click", () => {
+      submit.style.display = "none";
+    });
+    editor.addEventListener("focusout", function () {
+      Task.style.display = "block";
+      editor.style.display = "none";
+      Task.textContent = editor.value;
+      submit.style.display = "none";
+    });
   }
 }
 
-window.addEventListener('keypress',function(event){
-  if(event.code==='Enter'){
-    AddTask()
+window.addEventListener("keypress", function (event) {
+  if (event.code === "Enter") {
+    AddTask(userPlan.value);
   }
-  
-})
+});

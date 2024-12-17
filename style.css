@@ -37,13 +37,18 @@ p {
   padding-top: 90px;
 }
 .adder {
-    width: 50%;
+  width: 50%;
   background-color: rgb(15, 249, 85);
   padding: 10px 20px;
   box-shadow: 3px -7px 6px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+@media only screen and (max-width: 766px) {
+  .adder {
+    width: 90%;
+  }
 }
 .planText {
   padding: 7px 15px;
@@ -73,7 +78,7 @@ p {
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   cursor: pointer;
 }
-.mainTask{
+.mainTask {
   width: 90%;
   min-height: 50px;
   box-shadow: inset 0 0 10px;
@@ -83,16 +88,16 @@ p {
   justify-content: space-between;
   align-items: center;
   padding: 40px 15px;
-  border-radius:5px ;
+  border-radius: 5px;
 }
-.buttons{
+.buttons {
   width: 25%;
   display: flex;
   justify-content: space-between;
   color: blue;
   font-size: larger;
 }
-.addedTask{
+.addedTask {
   background-color: #ffffff85;
   width: 70%;
   padding: 10px;
@@ -101,15 +106,40 @@ p {
   flex-wrap: wrap;
   align-content: center;
   border-radius: 10px;
-  box-shadow: inset 0 0 5px,0 0 5px;
+  box-shadow: inset 0 0 5px, 0 0 5px;
   font-weight: 900;
   font-family: cursive;
   height: auto;
 }
-.addedContainer{
+.addedContainer {
   padding: 10px 15px;
 }
-.removed{
+.removed {
   text-decoration: line-through;
   text-decoration-color: blue;
+}
+.fas {
+  cursor: pointer;
+}
+.editor {
+  background-color: #ffffff85;
+  width: 70%;
+  padding: 10px;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  border-radius: 10px;
+  box-shadow: inset 0 0 5px, 0 0 5px;
+  font-weight: 900;
+  font-family: cursive;
+  height: auto;
+}
+.subButton {
+  background-color: transparent;
+  border-color: transparent;
+  font-size: 25px;
+  margin: 0 5px;
+  display: none;
+  cursor: pointer;
 }
