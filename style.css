@@ -8,7 +8,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: url("/pics.png") center;
+  background: url("/pics/pics.png") center;
   background-size: cover;
   height: 30vh;
   width: 100%;
