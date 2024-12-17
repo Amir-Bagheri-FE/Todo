@@ -6,7 +6,7 @@ i designed simple Application for organizaion daily tasks
 ---
 in input user can see at first Tasks can be add to a list simply with click on add ➕ or pressing Enter button 
 
-![input](./pics/input.png)
+![input](/pics/input.png)
 
 after adding Tasks user can continue Editing them using buttons
 
