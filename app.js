@@ -2,6 +2,7 @@ let userPlan = document.querySelector(".planText");
 let AddButton = document.querySelector(".addBtn");
 const Holder = document.querySelector(".added");
 let desc = document.querySelector(".description");
+let Time = document.getElementById('time');
 AddButton.addEventListener("click", () => {
   AddTask(userPlan.value);
 });
@@ -29,7 +30,7 @@ function AddTask(M) {
     sec2.append(Delete, done, Edit);
     Holder.append(container);
     container.classList.add("mainTask");
-    Task.textContent = M;
+    Task.textContent = `${M} until ${Time.value}`;
     Delete.classList.add("fas", "fa-trash-alt");
     done.classList.add("fas", "fa-check");
     Edit.classList.add("fas", "fa-edit");
@@ -60,7 +61,7 @@ function AddTask(M) {
     editor.addEventListener("focusout", function () {
       Task.style.display = "block";
       editor.style.display = "none";
-      Task.textContent = editor.value;
+      Task.textContent = editor.value
       submit.style.display = "none";
     });
   }

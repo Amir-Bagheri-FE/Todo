@@ -96,6 +96,7 @@ p {
   justify-content: space-between;
   color: blue;
   font-size: larger;
+  margin: 0 15px;
 }
 .addedTask {
   background-color: #ffffff85;
@@ -142,4 +143,10 @@ p {
   margin: 0 5px;
   display: none;
   cursor: pointer;
+}
+#time{
+  margin: 5px;
+  border-radius: 7px;
+  border: 2px solid;
+  position: relative;
 }
