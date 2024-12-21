@@ -2,7 +2,8 @@ let userPlan = document.querySelector(".planText");
 let AddButton = document.querySelector(".addBtn");
 const Holder = document.querySelector(".added");
 let desc = document.querySelector(".description");
-let Time = document.getElementById('time');
+let Time = document.getElementById("time");
+let counter = 1;
 AddButton.addEventListener("click", () => {
   AddTask(userPlan.value);
 });
@@ -36,6 +37,10 @@ function AddTask(M) {
     Edit.classList.add("fas", "fa-edit");
     sec2.classList.add("buttons");
     submit.classList.add("subButton");
+    //saving data
+    localStorage.setItem(`task${counter}`, M);
+    localStorage.setItem(`counterSaved`, counter);
+    counter++;
     //events
     userPlan.value = "";
     Delete.addEventListener("click", (e) => {
@@ -61,7 +66,7 @@ function AddTask(M) {
     editor.addEventListener("focusout", function () {
       Task.style.display = "block";
       editor.style.display = "none";
-      Task.textContent = editor.value
+      Task.textContent = editor.value;
       submit.style.display = "none";
     });
   }
@@ -71,4 +76,15 @@ window.addEventListener("keypress", function (event) {
   if (event.code === "Enter") {
     AddTask(userPlan.value);
   }
+});
+
+window.addEventListener("DOMContentLoaded", function () {
+  let c = this.localStorage.getItem("counterSaved");
+  console.log(c);
+  
+  for (let i = 1; i <= c; i++) {
+    let result = localStorage.getItem(`task${i}`);
+    AddTask(result);
+  }
+  
 });
