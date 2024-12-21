@@ -19,6 +19,17 @@ Editing user Tasks was added by update
 
 📝with this one user can easily change Contents of task 
 
+## Time 🕛 added
+now user can set deadtime for tasks
+
+## tasks are still here 🥳
+now with refreshing the page you won't lose your added tasks
+just by using of some localStorage object and its methods
+```javadcript
+localStorage.setItem(`task${counter}`, M);
+localStorage.setItem(`counterSaved`, counter);
+```
+
 ---
 ---
 in JS i use Addtask for adding event and each time a div wil be add and created with AddTask event 

@@ -80,8 +80,6 @@ window.addEventListener("keypress", function (event) {
 
 window.addEventListener("DOMContentLoaded", function () {
   let c = this.localStorage.getItem("counterSaved");
-  console.log(c);
-  
   for (let i = 1; i <= c; i++) {
     let result = localStorage.getItem(`task${i}`);
     AddTask(result);
