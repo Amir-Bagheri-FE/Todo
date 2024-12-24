@@ -60,7 +60,7 @@ p {
 }
 .added {
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   align-items: center;
   width: 97%;
   min-height: 80%;
