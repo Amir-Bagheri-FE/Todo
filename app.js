@@ -39,13 +39,19 @@ function AddTask(M) {
     submit.classList.add("subButton");
     //saving data
     localStorage.setItem(`task${counter}`, M);
-    localStorage.setItem(`counterSaved`, counter);
     counter++;
     //events
     userPlan.value = "";
     Delete.addEventListener("click", (e) => {
       let target = e.target;
-      target.parentElement.parentElement.remove();
+      let theTask = target.parentElement.parentElement;
+      theTask.remove();
+      let taskText = theTask.querySelector("p").textContent;
+      for (let i = 1; i <= localStorage.length; i++) {
+        if (localStorage.getItem(`task${i}`) === taskText.split(" until ")[0]) {
+          localStorage.removeItem(`task${i}`);
+          break;
+        }}
     });
     done.addEventListener("click", () => {
       Task.classList.add("removed");
@@ -78,11 +84,11 @@ window.addEventListener("keypress", function (event) {
   }
 });
 
-window.addEventListener("DOMContentLoaded", function () {
-  let c = this.localStorage.getItem("counterSaved");
-  for (let i = 1; i <= c; i++) {
+document.addEventListener("DOMContentLoaded", function () {
+  for (let i = 1; i <=localStorage.length; i++) {
     let result = localStorage.getItem(`task${i}`);
-    AddTask(result);
+    if(result!=null){
+      AddTask(result);
+    } 
   }
-  
 });

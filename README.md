@@ -30,8 +30,6 @@ localStorage.setItem(`task${counter}`, M);
 localStorage.setItem(`counterSaved`, counter);
 ```
 
----
----
 in JS i use Addtask for adding event and each time a div wil be add and created with AddTask event 
 ```javaScript
     let container = document.createElement("div");
@@ -43,5 +41,6 @@ in JS i use Addtask for adding event and each time a div wil be add and created 
     let Edit = document.createElement("li");
     let editor = document.createElement("input");
     const submit = document.createElement("button");
-    ```
-
+```
+## Delete them completely 🚮
+now on clicking delete button Task also will be removed from the localStorage too
