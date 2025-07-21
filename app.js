@@ -3,7 +3,7 @@ let AddButton = document.querySelector(".addBtn");
 const Holder = document.querySelector(".added");
 let desc = document.querySelector(".description");
 let Time = document.getElementById("time");
-let counter = 1;
+let counter = localStorage.getItem("taskCounter") ? parseInt(localStorage.getItem("taskCounter")) : 1;
 AddButton.addEventListener("click", () => {
   AddTask(userPlan.value);
 });
@@ -40,6 +40,7 @@ function AddTask(M) {
     //saving data
     localStorage.setItem(`task${counter}`, M);
     counter++;
+    localStorage.setItem("taskCounter", counter);
     //events
     userPlan.value = "";
     Delete.addEventListener("click", (e) => {
@@ -83,9 +84,9 @@ window.addEventListener("keypress", function (event) {
     AddTask(userPlan.value);
   }
 });
-
 document.addEventListener("DOMContentLoaded", function () {
-  for (let i = 1; i <=localStorage.length; i++) {
+  let max = localStorage.getItem("taskCounter") ? parseInt(localStorage.getItem("taskCounter")) : 1;
+  for (let i = 1; i < max; i++) {
     let result = localStorage.getItem(`task${i}`);
     if(result!=null){
       AddTask(result);
